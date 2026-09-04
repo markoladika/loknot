@@ -3,6 +3,10 @@
 Three ways, easiest first. Loknot is not in the Chrome or Firefox stores yet, so every path
 below is a manual install.
 
+> **Everything you download comes from the [Releases page](../../releases/latest), not from
+> the green "Code → Download ZIP" button.** That button gives you the source, which has no
+> built extension in it — the build output is deliberately not committed.
+
 ---
 
 ## 1 · Bookmarklet — nothing to install, any browser
