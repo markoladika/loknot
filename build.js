@@ -21,7 +21,7 @@ const bookmarklet = 'javascript:' + encodeURIComponent(src).replace(/'/g, '%27')
 fs.writeFileSync(path.join(dist, 'bookmarklet.txt'), bookmarklet);
 
 /* ---------- install page ---------- */
-fs.writeFileSync(path.join(dist, 'install.html'), `<!doctype html><meta charset="utf-8">
+fs.writeFileSync(path.join(dist, 'loknot-bookmarklet.html'), `<!doctype html><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Loknot — install</title>
 <style>
 :root{color-scheme:light dark;--bg:#fff;--fg:#15181d;--mut:#6b7280;--card:#f6f7f9;--line:#dde1e6}
@@ -211,7 +211,11 @@ for (const [name, manifest] of Object.entries(manifests)) {
   for (const f of fs.readdirSync(path.join(dir, 'icons'))) {
     fs.copyFileSync(path.join(dir, 'icons', f), path.join(out, 'icons', f));
   }
-  try { cp.execSync(`cd "${out}" && zip -qr ../${name}-v${VERSION}.zip .`); } catch (e) { console.warn('zip skipped: ' + e.message); }
+  // names people see on the release page
+  const archive = name === 'extension-chrome'
+    ? `loknot-chrome-${VERSION}.zip`            // unzip, load unpacked
+    : `loknot-firefox-source-${VERSION}.zip`;   // what gets uploaded to AMO
+  try { cp.execSync(`cd "${out}" && zip -qr ../${archive} .`); } catch (e) { console.warn('zip skipped: ' + e.message); }
 }
 
 console.log('bookmarklet: ' + bookmarklet.length + ' chars');

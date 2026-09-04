@@ -54,7 +54,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           # the signed .xpi only exists when the AMO secrets are configured
-          ASSETS=$(ls dist/*.zip dist/install.html dist/SHA256SUMS.txt dist/signed/*.xpi 2>/dev/null)
+          ASSETS=$(ls dist/*.zip dist/loknot-bookmarklet.html dist/SHA256SUMS.txt dist/signed/*.xpi 2>/dev/null)
           gh release create "$GITHUB_REF_NAME" \
             --title "Loknot $GITHUB_REF_NAME" \
             --generate-notes \

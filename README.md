@@ -25,15 +25,15 @@ Download from the **[latest release](../../releases/latest)** — not the green 
 which gives source without a build.
 
 **Chrome**
-1. Download `extension-chrome-*.zip`, unzip it
+1. Download `loknot-chrome-*.zip`, unzip it
 2. Open `chrome://extensions`, turn on **Developer mode**
 3. **Load unpacked** → select the unzipped folder
 
 **Firefox**
-1. Download `loknot-*.xpi`
+1. Download `loknot-firefox-*.xpi`
 2. Open `about:addons` → ⚙ → **Install Add-on From File…**
 
-**No install at all** — download `install.html`, open it, drag the pink button to your
+**No install at all** — download `loknot-bookmarklet.html`, open it, drag the pink button to your
 bookmarks bar.
 
 Then press <kbd>⌘/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> on any page.

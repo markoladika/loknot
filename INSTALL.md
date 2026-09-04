@@ -13,7 +13,7 @@ below is a manual install.
 
 Best for trying it out, and the only option on a locked-down machine.
 
-1. Download **`install.html`** from the latest [release](../../releases/latest) (or build it,
+1. Download **`loknot-bookmarklet.html`** from the latest [release](../../releases/latest) (or build it,
    see below) and open it in your browser.
 2. Drag the pink **Loknot** button onto your bookmarks bar.
 3. Open any page, click the bookmark, press `⌘/Ctrl+Shift+L`.
@@ -27,7 +27,7 @@ happens on such a site, use the extension.
 
 Permanent. Survives restarts. Shows a "developer mode extensions" notice on each launch.
 
-1. Download **`extension-chrome-v<version>.zip`** from the latest release and unzip it.
+1. Download **`loknot-chrome-<version>.zip`** from the latest release and unzip it.
 2. Open `chrome://extensions`.
 3. Turn on **Developer mode** (top right).
 4. Click **Load unpacked** and select the unzipped folder.
@@ -42,7 +42,7 @@ Optional:
 
 ## 3 · Firefox — install the signed add-on
 
-1. Download **`loknot-<version>.xpi`** from the latest release.
+1. Download **`loknot-firefox-<version>.xpi`** from the latest release.
 2. Open `about:addons` → gear icon ⚙ → **Install Add-on From File…** → pick the `.xpi`.
 3. Press `⌘/Ctrl+Shift+L` on any page.
 
@@ -67,7 +67,7 @@ That writes everything into `dist/`:
 ```
 dist/extension-chrome/          load unpacked here
 dist/extension-firefox/         about:debugging → Load Temporary Add-on (dev only)
-dist/install.html               open, drag the bookmarklet
+dist/loknot-bookmarklet.html    open, drag the bookmarklet
 dist/loknot.user.js             paste into Tampermonkey / Violentmonkey
 dist/bookmarklet.txt            the raw javascript: URL
 ```
