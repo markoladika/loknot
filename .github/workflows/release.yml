@@ -1,0 +1,59 @@
+name: Release
+
+# Tag a version and this builds it, has Mozilla sign the Firefox build, and
+# publishes both packages on the GitHub release:
+#   npm version is not used — bump VERSION in build.js, commit, then:
+#   git tag v1.3.3 && git push origin main --tags
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build
+        run: node build.js
+
+      - name: Tag must match the manifest version
+        run: |
+          V=$(node -p "require('./dist/extension-firefox/manifest.json').version")
+          if [ "v$V" != "$GITHUB_REF_NAME" ]; then
+            echo "tag $GITHUB_REF_NAME does not match manifest version $V"
+            exit 1
+          fi
+
+      - name: Sign the Firefox build with Mozilla
+        if: ${{ secrets.AMO_JWT_ISSUER != '' }}
+        run: |
+          npx --yes web-ext sign \
+            --source-dir dist/extension-firefox \
+            --artifacts-dir dist/signed \
+            --channel unlisted \
+            --api-key "${{ secrets.AMO_JWT_ISSUER }}" \
+            --api-secret "${{ secrets.AMO_JWT_SECRET }}"
+
+      - name: Checksums
+        run: |
+          cd dist
+          mkdir -p signed
+          shasum -a 256 *.zip signed/*.xpi 2>/dev/null | sed 's|signed/||' > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --title "Loknot $GITHUB_REF_NAME" \
+            --generate-notes \
+            dist/*.zip dist/signed/*.xpi dist/SHA256SUMS.txt

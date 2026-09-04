@@ -1,0 +1,24 @@
+{
+  "name": "loknot",
+  "version": "1.2.0",
+  "description": "Pick UI elements in the browser, attach notes, copy them all as one prompt for an AI coding agent.",
+  "scripts": {
+    "icons": "node icons.js",
+    "build": "node icons.js && node build.js",
+    "lint:firefox": "npx --yes web-ext lint --source-dir dist/extension-firefox",
+    "sign:firefox": "bash sign-firefox.sh",
+    "run:firefox": "npx --yes web-ext run --source-dir dist/extension-firefox",
+    "watch": "node watch.js",
+    "dev:firefox": "node build.js && npx --yes web-ext run --source-dir dist/extension-firefox"
+  },
+  "license": "MIT",
+  "author": "Producting Labs",
+  "homepage": "https://productinglabs.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markoladika/loknot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/markoladika/loknot/issues"
+  }
+}

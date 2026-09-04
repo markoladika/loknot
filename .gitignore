@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.xpi
+*.zip
+# never commit AMO credentials — they live in ~/.config/loknot/amo-keys.md
+amo-keys*
+firefoxKeys*
+.amo-upload-uuid
+.DS_Store
+*.mov
+private/
