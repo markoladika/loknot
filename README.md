@@ -21,20 +21,15 @@ as a single precise prompt for your AI coding agent.
 
 ## Install
 
-Download from the **[latest release](../../releases/latest)** — not the green *Code* button,
-which gives source without a build.
+| Browser | Download | Then |
+|---|---|---|
+| **Firefox** | [loknot-firefox-1.3.3.xpi](https://github.com/markoladika/loknot/releases/latest/download/loknot-firefox-1.3.3.xpi) | `about:addons` → ⚙ → **Install Add-on From File…** |
+| **Chrome** | [loknot-chrome-1.3.3.zip](https://github.com/markoladika/loknot/releases/latest/download/loknot-chrome-1.3.3.zip) | unzip → `chrome://extensions` → **Developer mode** → **Load unpacked** → pick the folder |
+| **Any** | [loknot-bookmarklet.html](https://github.com/markoladika/loknot/releases/latest/download/loknot-bookmarklet.html) | open it, drag the pink button to your bookmarks bar |
 
-**Chrome**
-1. Download `loknot-chrome-*.zip`, unzip it
-2. Open `chrome://extensions`, turn on **Developer mode**
-3. **Load unpacked** → select the unzipped folder
-
-**Firefox**
-1. Download `loknot-firefox-*.xpi`
-2. Open `about:addons` → ⚙ → **Install Add-on From File…**
-
-**No install at all** — download `loknot-bookmarklet.html`, open it, drag the pink button to your
-bookmarks bar.
+The Firefox build is signed by Mozilla, so it stays installed after a restart.
+All files live on the [releases page](../../releases/latest) — not behind the green *Code*
+button, which gives source without a build.
 
 Then press <kbd>⌘/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> on any page.
 
